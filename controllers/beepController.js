@@ -7,10 +7,9 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import { testLocation, StartTimerBeeper } from "../services/BeeperService.js";
+import { testLocation, StartTimerBeeper, statusList } from "../services/BeeperService.js";
 import { readFromJsonFile, writeUserToJsonFile, editBeeper, DeleteBeeperFromDB } from "../DAL/jsonBeepers.js";
 import { v4 as uuidv4 } from "uuid";
-const statusList = ["manufactured", "assembled", "shipped", "deployed", "detonatede"];
 export const GetBeepers = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const allBeepers = yield readFromJsonFile();

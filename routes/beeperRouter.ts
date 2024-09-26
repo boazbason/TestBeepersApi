@@ -1,6 +1,5 @@
 import express, { Router } from 'express';
 import {GetBeepers, AddBeeper, GetByStatus, GetSpecificBeeper, UpdateStatus, DeleteBeeper} from '../controllers/beepController.js' 
-import {middle1} from '../middleWares/middle1.js'
 
 const router: Router = express.Router();
 

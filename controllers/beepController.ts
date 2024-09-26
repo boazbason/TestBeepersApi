@@ -1,13 +1,8 @@
 import e, { Request, Response } from "express";
-import { testLocation, StartTimerBeeper } from "../services/BeeperService.js";
+import { testLocation, StartTimerBeeper, statusList} from "../services/BeeperService.js";
 import { Beeper} from "../models/types.js";
-import axios, { AxiosResponse } from 'axios';
 import { readFromJsonFile, writeUserToJsonFile, editBeeper, DeleteBeeperFromDB} from "../DAL/jsonBeepers.js"
-import { log } from "console";
-import {middle1} from '../middleWares/middle1.js'
 import { v4 as uuidv4 } from "uuid";
-
-const statusList =  ["manufactured",  "assembled", "shipped", "deployed", "detonatede"];
 
 
 export const GetBeepers = async (req: Request, res: Response): Promise<void> => {
