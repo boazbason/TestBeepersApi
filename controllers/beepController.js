@@ -57,12 +57,12 @@ export const UpdateStatus = (req, res) => __awaiter(void 0, void 0, void 0, func
         return;
     }
     if (index == 2) {
-        if (!testLocation(req.body.latitude, req.body.longitude)) {
+        if (!testLocation(req.body.lat, req.body.lon)) {
             res.status(400).json({ massage: "location not correct" });
             return;
         }
-        beeperFound.latitude = req.body.latitude;
-        beeperFound.longitude = req.body.longitude;
+        beeperFound.latitude = req.body.lat;
+        beeperFound.longitude = req.body.lon;
         editBeeper(beeperFound);
         StartTimerBeeper(beeperFound);
     }

@@ -14,13 +14,15 @@ export const Longitude = [35.78674, 36.59793, 35.85089, 36.11096, 35.20427, 36.5
 export function testLocation(lat, lon) {
     const indexLat = Latitude.indexOf(lat);
     const indexLon = Latitude.indexOf(lon);
+    if (indexLat == -1)
+        return false;
     return indexLat == indexLon;
 }
 export function StartTimerBeeper(beeper) {
     return __awaiter(this, void 0, void 0, function* () {
         const timeout = setTimeout(() => {
             beeper.status = "detonatede";
-            beeper.name = "killde";
+            beeper.name = `${beeper.name} killde`;
             beeper.deteonated_at = new Date();
             editBeeper(beeper);
         }, 10000);
