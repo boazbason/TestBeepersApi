@@ -23,3 +23,12 @@ export const editBeeper = async (beeper: Beeper): Promise<void> => {
     await jsonfile.writeFile(DB_FILE_PATH, users);
   }
 };
+
+export const DeleteBeeperFromDB = async (beeper: Beeper): Promise<void> => {
+  const users: Beeper[] = await jsonfile.readFile(DB_FILE_PATH);
+  const index = users.findIndex((b) => b.id === beeper.id);
+  if (index !== -1) {
+    users.splice(index, 1)
+    await jsonfile.writeFile(DB_FILE_PATH, users);
+  }
+};

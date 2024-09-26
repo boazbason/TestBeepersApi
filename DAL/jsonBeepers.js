@@ -20,9 +20,17 @@ export const readFromJsonFile = () => __awaiter(void 0, void 0, void 0, function
 });
 export const editBeeper = (beeper) => __awaiter(void 0, void 0, void 0, function* () {
     const users = yield jsonfile.readFile(DB_FILE_PATH);
-    const index = users.findIndex((u) => u.id === beeper.id);
+    const index = users.findIndex((b) => b.id === beeper.id);
     if (index !== -1) {
         users[index] = beeper;
+        yield jsonfile.writeFile(DB_FILE_PATH, users);
+    }
+});
+export const DeleteBeeperFromDB = (beeper) => __awaiter(void 0, void 0, void 0, function* () {
+    const users = yield jsonfile.readFile(DB_FILE_PATH);
+    const index = users.findIndex((b) => b.id === beeper.id);
+    if (index !== -1) {
+        users.splice(index, 1);
         yield jsonfile.writeFile(DB_FILE_PATH, users);
     }
 });

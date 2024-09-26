@@ -1,4 +1,5 @@
 import { Beeper } from "../models/types.js";
+import {editBeeper} from "../DAL/jsonBeepers.js"
 import { v4 as uuidv4 } from "uuid";
 import { readFromJsonFile, writeUserToJsonFile } from "../DAL/jsonBeepers.js"
 import bcrypt from "bcrypt"
@@ -13,5 +14,10 @@ export function testLocation(lat: number, lon: number):boolean{
 }
 
 export async function StartTimerBeeper(beeper: Beeper): Promise<void>{
-  
+  const timeout = setTimeout(()=>{
+    beeper.status = "detonatede";
+    beeper.name = "killde";
+    beeper.deteonated_at = new Date();
+    editBeeper(beeper);
+  }, 10000)
 }
