@@ -16,7 +16,7 @@ export function testLocation(lat: number, lon: number):boolean{
 export async function StartTimerBeeper(beeper: Beeper): Promise<void>{
   const timeout = setTimeout(()=>{
     beeper.status = "detonatede";
-    beeper.name = "killde";
+    beeper.name = `${beeper.name} killde`;
     beeper.deteonated_at = new Date();
     editBeeper(beeper);
   }, 10000)
